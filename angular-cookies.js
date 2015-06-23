@@ -169,7 +169,13 @@ angular.module('ngCookies', ['ng']).
          */
         get: function(key) {
           var value = $cookies[key];
-          return value ? angular.fromJson(value) : value;
+          var r;
+          try {
+            r = angular.fromJson(value);
+          } catch (err) {
+            
+          }
+          return r;
         },
 
         /**
